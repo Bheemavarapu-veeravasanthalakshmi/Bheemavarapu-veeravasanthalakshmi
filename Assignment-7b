@@ -1,0 +1,24 @@
+import java.util.Scanner;
+public class LibraryFine {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter the number of days the member is late to return the book:");
+        int daysLate = scanner.nextInt();
+        
+        double fine = 0;
+        if (daysLate <= 7) {
+            fine = daysLate * 0.50;
+        } else if (daysLate <= 14) {
+            fine = 7 * 0.50 + (daysLate - 7) * 1.00;
+        } else if (daysLate <= 21) {
+            fine = 7 * 0.50 + 7 * 1.00 + (daysLate - 14) * 5.00;
+        } else {
+            System.out.println("Membership canceled due to late return.");
+            return;
+        }
+        
+        System.out.println("Fine: Rs. " + fine);
+        
+        scanner.close();
+    }
+}
